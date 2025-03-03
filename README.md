@@ -161,6 +161,11 @@ For reasons above my paygrade, 3D acceleration does not work out-of-the-box with
 
    It should output `llvmpipe`.
 
+   With this update, and with shadows disabled, you should be able to get 15-20fps in Gazebo. Further optimizations will get this even higher (e.g. changing the physics engine, reducing the mesh complexity etc)
+
+   ![image](https://github.com/user-attachments/assets/50556fe3-feab-4979-a99e-9ba8bbe4e13d)
+
+
 ### **7. GUI Support in WSL**
 
 By default, WSL does not support GUI applications. To run ROS tools like `rviz` or `gazebo`, you need to set up a **X server** on Windows.
@@ -204,6 +209,39 @@ rosrun rviz rviz
 
 ---
 
+# Accessing WSL folders through Windows Explorer
+In Windows 10, Windows Subsystem for Linux (WSL) is an environment that allows you to run a Linux instance directly within Windows. The files for the Linux distributions you install are stored in the Windows file system. Here's how you can access these WSL folders:
+
+1. **Access via File Explorer:**
+   - Open the Windows File Explorer.
+   - In the address bar, type `\\wsl$` and press Enter.
+   - You will see a list of installed Linux distributions. Click on the specific distribution to access its file system.
+
+2. **Access via Direct Path:**
+   - WSL stores its files in a specific location within your user profile folder. The default path is:
+     ```
+     C:\Users\<YourUsername>\AppData\Local\Packages
+     ```
+   - Locate the folder corresponding to your Linux distribution. It usually starts with the distribution name, such as `CanonicalGroupLimited.UbuntuonWindows_` for Ubuntu.
+   - Navigate to:
+     ```
+     <DistributionFolder>\LocalState\rootfs
+     ```
+   - Here, you will find the root file system of your WSL distribution.
+
+3. **Using WSL Command Line:**
+   - You can also navigate to your Windows files from within the WSL terminal using the `/mnt` directory. For instance, your C: drive is accessible at `/mnt/c`. You can explore files using regular Linux commands like `ls`, `cd`, etc.
+  
+4. **Accessing WSL Home Folder:**
+   - If you need to access your Linux home directory directly from File Explorer, you can create a symbolic link:
+     - Open a WSL terminal.
+     - Enter the following command:
+       ```bash
+       ln -s ~/ /mnt/c/Users/<YourWindowsUsername>/wsl_home
+       ```
+     - Now, you can navigate to `C:\Users\<YourWindowsUsername>\wsl_home` to access your Linux home directory.
+
+**Note:** Direct access to WSL files from the Windows file system is possible, but modifying your Linux files from Windows can lead to permissions issues or data corruption. As a general rule, it's safer to interact with your Linux files using Linux tools via a WSL terminal.
 
 # Acknowledgements
 This project is based on the **spotMicro** https://github.com/mike4192/spotMicro/tree/master and **notspot** project https://github.com/lnotspotl/notspot_sim_py projects. As per the spotMicro links and references, here are some useful resources:
