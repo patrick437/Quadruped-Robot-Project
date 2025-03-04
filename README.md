@@ -1,7 +1,59 @@
-# Quadruped-Robot-Project
-Repository for EE5109 mini-project: Quadruped Robot Project
+# Table of Contents
+- [Quadruped ROS Gazebo project](#Quadruped-Robot-Project)
+- [Setup](##Setup)
+- [Run](##Run)
+- [Controllers](##Controllers)
+- [Keyboard Teleoperation](##Keyboard Teleoperation)
+- [WSL setup](#WSL setup)
+- [License](#License)
+- [Acknowledgements](#Acknowledgements)
 
-## code will be added shortly...
+# Quadruped-Robot-Project
+Repository for EE5109 mini-project: Quadruped Robot Project. This repository contains all the files and code needed to simulate the notspot quadrupedal robot using Gazebo and ROS. The software runs on ROS noetic and Ubuntu 20.04. 
+![image](https://github.com/user-attachments/assets/7ea9f32b-9309-42cf-9fc3-ef04f5e1460e)
+
+##### note: the repository contains a Dockerfile, but if you have a Windows machine and no dedicated GPU, I recommend using wsl. See instructions below.
+
+## Setup
+To clone the repository, run:
+```
+git clone https://github.com/EE5109-Control-Locomotion-Navigation/Quadruped-Robot-Project.git
+```
+Once cloned, build and source:
+```
+cd src && catkin_init_workspace
+cd .. && catkin_make
+source devel/setup.bash
+roscd notspot_controller/scripts && chmod +x robot_controller_gazebo.py
+cp -r RoboticsUtilities ~/.local/lib/python3.8/site-packages
+roscd notspot_joystick/scripts && chmod +x ramped_joystick.py
+```
+## Run
+```
+source devel/setup.bash
+roslaunch notspot run_robot_gazebo.launch
+```
+## Controllers
+As described in the original repository (https://github.com/lnotspotl/notspot_sim_py/tree/main), the project comes with four different controllers. These are:
+### Rest Controller
+![image](https://github.com/user-attachments/assets/b328e85e-0f40-4158-a5a8-aa70b514d996)
+### Stand Controller
+![image](https://github.com/user-attachments/assets/76c86229-46df-4345-9c26-a670f6827691)
+### Trot Gait Controller
+![image](https://github.com/user-attachments/assets/99cbe836-1e72-481b-bb4e-8c4420c66e9e)
+### Crawl Gait Controller
+![image](https://github.com/user-attachments/assets/1c80eb69-8b6b-40ea-8785-6d1bcfc8b96c)
+
+The user can switch between these at runtime.
+
+## Keyboard Teleoperation
+This repository comes with a rudimentary keyboard controller, based on teleop_twist_keyboard. To teleoperate the robot, open a second terminal and run the following from the project workspace:
+```
+source devel/setup.bash
+roslaunch notspot_joystick teleop_keyboard.launch
+```
+You should see the following:
+![image](https://github.com/user-attachments/assets/c6aa2a2c-101a-411b-b3ab-29409e1a17f0)
 
 # WSL setup
 Unless you have a dedicated GPU, you will have to rely on the internal graphics card for 3D acceleration. Docker and virtual machines do not have good support for 3D acceleration. Based on this, I have found the best way to run simulations is through WSL. WSL allows you to run a Linux environment directly on Windows, making it possible to install and use ROS Noetic, which is officially supported on Ubuntu 20.04. The following are instructions on how to set it up:
@@ -242,6 +294,9 @@ In Windows 10, Windows Subsystem for Linux (WSL) is an environment that allows y
      - Now, you can navigate to `C:\Users\<YourWindowsUsername>\wsl_home` to access your Linux home directory.
 
 **Note:** Direct access to WSL files from the Windows file system is possible, but modifying your Linux files from Windows can lead to permissions issues or data corruption. As a general rule, it's safer to interact with your Linux files using Linux tools via a WSL terminal.
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 # Acknowledgements
 This project is based on the **spotMicro** https://github.com/mike4192/spotMicro/tree/master and **notspot** project https://github.com/lnotspotl/notspot_sim_py projects. As per the spotMicro links and references, here are some useful resources:
