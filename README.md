@@ -296,7 +296,7 @@ In Windows 10, Windows Subsystem for Linux (WSL) is an environment that allows y
 **Note:** Direct access to WSL files from the Windows file system is possible, but modifying your Linux files from Windows can lead to permissions issues or data corruption. As a general rule, it's safer to interact with your Linux files using Linux tools via a WSL terminal.
 ## License
 
-This project is licensed under the MIT License - see the [License](./LICENSE.TXT) file for details.
+This project is licensed under the MIT License - see the [License](./LICENSE.txt) file for details.
 
 # Acknowledgements
 This project is based on the **spotMicro** https://github.com/mike4192/spotMicro/tree/master and **notspot** project https://github.com/lnotspotl/notspot_sim_py projects. As per the spotMicro links and references, here are some useful resources:
