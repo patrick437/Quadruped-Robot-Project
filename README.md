@@ -3,8 +3,8 @@
 - [Setup](##Setup)
 - [Run](##Run)
 - [Controllers](##Controllers)
-- [Keyboard Teleoperation](##Keyboard Teleoperation)
-- [WSL setup](#WSL setup)
+- [Keyboard Teleoperation](##Keyboard-Teleoperation)
+- [WSL setup](#WSL-setup)
 - [License](#License)
 - [Acknowledgements](#Acknowledgements)
 
@@ -46,7 +46,7 @@ As described in the original repository (https://github.com/lnotspotl/notspot_si
 
 The user can switch between these at runtime.
 
-## Keyboard Teleoperation
+## Keyboard-Teleoperation
 This repository comes with a rudimentary keyboard controller, based on teleop_twist_keyboard. To teleoperate the robot, open a second terminal and run the following from the project workspace:
 ```
 source devel/setup.bash
@@ -55,7 +55,7 @@ roslaunch notspot_joystick teleop_keyboard.launch
 You should see the following:
 ![image](https://github.com/user-attachments/assets/c6aa2a2c-101a-411b-b3ab-29409e1a17f0)
 
-# WSL setup
+# WSL-setup
 Unless you have a dedicated GPU, you will have to rely on the internal graphics card for 3D acceleration. Docker and virtual machines do not have good support for 3D acceleration. Based on this, I have found the best way to run simulations is through WSL. WSL allows you to run a Linux environment directly on Windows, making it possible to install and use ROS Noetic, which is officially supported on Ubuntu 20.04. The following are instructions on how to set it up:
 
 ### **Steps to Run ROS Noetic on WSL**
@@ -296,7 +296,7 @@ In Windows 10, Windows Subsystem for Linux (WSL) is an environment that allows y
 **Note:** Direct access to WSL files from the Windows file system is possible, but modifying your Linux files from Windows can lead to permissions issues or data corruption. As a general rule, it's safer to interact with your Linux files using Linux tools via a WSL terminal.
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [License](./LICENSE.TXT) file for details.
 
 # Acknowledgements
 This project is based on the **spotMicro** https://github.com/mike4192/spotMicro/tree/master and **notspot** project https://github.com/lnotspotl/notspot_sim_py projects. As per the spotMicro links and references, here are some useful resources:
