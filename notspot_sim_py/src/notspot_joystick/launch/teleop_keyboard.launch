@@ -1,0 +1,7 @@
+<launch>
+    <!-- Teleop Twist Keyboard Node -->
+    <node pkg="notspot_joystick" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard" output="screen">
+        <param name="speed" value="0.5" />
+        <param name="turn" value="1.0" />
+    </node>
+</launch>
