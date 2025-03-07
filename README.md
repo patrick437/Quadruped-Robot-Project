@@ -15,11 +15,14 @@ Repository for EE5109 mini-project: Quadruped Robot Project. This repository con
 ##### note: the repository contains a Dockerfile, but if you have a Windows machine and no dedicated GPU, I recommend using wsl. See instructions below.
 
 ## Setup
+Note: if you haven't already set up wsl, please skip to the install instructions [WSL setup](#WSL-setup)
 To clone the repository, run:
 ```
 git clone https://github.com/EE5109-Control-Locomotion-Navigation/Quadruped-Robot-Project.git
 ```
-Once cloned, build and source:
+Once cloned, build and run the Dockerfile in this repo. This will set up a ROS Noetic container 
+
+build and source:
 ```
 cd src && catkin_init_workspace
 cd .. && catkin_make
