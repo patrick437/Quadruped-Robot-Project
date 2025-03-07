@@ -31,7 +31,7 @@ source devel/setup.bash
 # The first time you run catkin_make, run these commands. Once you can successfully launch the simulation, you don't need to run these again.
 roscd notspot_controller/scripts && chmod +x robot_controller_gazebo.py
 cp -r RoboticsUtilities ~/.local/lib/python3.8/site-packages
-roscd notspot_joystick/scripts && chmod +x teleop_keyboard.py
+roscd notspot_joystick/scripts && chmod +x teleop_twist_keyboard.py
 ```
 ## Run
 ```
