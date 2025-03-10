@@ -1,3 +1,10 @@
+# Changes
+
+- To launch a window: `export DISPLAY=:0`
+- `mkdir  ~/.local/lib/python3.8/site-packages`
+- Sometimes Gazebo doesn't shut down properly and gives me errors the second time I open it up. `pkill -9 gzserver` in between launches seemed to fix it for me.
+
+
 # Table of Contents
 - [Quadruped ROS Gazebo project](#Quadruped-Robot-Project)
 - [Setup](##Setup)
